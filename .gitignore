@@ -1,0 +1,6 @@
+# list of ignoring files
+*/venv/*
+/workspace.xml
+*sqlite3
+*.idea
+*__pycache__
