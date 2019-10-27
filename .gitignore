@@ -1,5 +1,6 @@
 # list of ignoring files
 */venv/*
+venv/
 /workspace.xml
 *sqlite3
 *.idea
