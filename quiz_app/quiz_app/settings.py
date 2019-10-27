@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'users',
     'bootstrap4',
     'core',
-    'quiz'
+    'quiz',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
