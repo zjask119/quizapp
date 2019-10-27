@@ -1,10 +1,13 @@
 from django.db import models
 from users.models import User
 
-class Category:
+class Category(models.Model):
     category = models.CharField(max_length=20, primary_key=True)
 
-class Quiz:
+    def __repr__(self):
+        return self.category
+
+class Quiz(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
