@@ -8,6 +8,5 @@ class User(DJANGOUSER):
         ('M', 'Mod'),
         ('A', 'Admin'),
     )
-    name = models.CharField(max_length=30)
-    shirt_size = models.CharField(max_length=1, choices=PERMISSIONS)
+    permissions = models.CharField(max_length=1, choices=PERMISSIONS)
 
