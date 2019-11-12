@@ -1,6 +1,6 @@
 <!-- templates/registration/login.html -->
 
-{% extends "index.html" %}
+{% extends "main/index.html" %}
 {% load crispy_forms_tags %}
 
 {% block title %}Login{% endblock %}
@@ -9,7 +9,7 @@
 
 <div class="container-fluid">
 
-    <form mehtod="post">
+    <form method="POST">
         {% csrf_token %}
         <fieldset class="form-group">
         {{ form|crispy }}
