@@ -125,5 +125,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 # URL to redirect the user to the homepage
 LOGIN_REDIRECT_URL = '/'
