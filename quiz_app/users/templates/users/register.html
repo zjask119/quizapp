@@ -1,0 +1,29 @@
+<!-- templates/registration/login.html -->
+
+{% extends "main/index.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+        {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Sign Up</button>
+        </div>
+    </form>
+
+    <div class="border-top pt-3">
+        <small class="text-muted">
+        Alreade Have An Account? <a class="ml-2" href="{% url 'login' % }">Login</a>
+    </small>
+    </div>
+</div>
+
+{% endblock content %}
