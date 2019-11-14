@@ -1,41 +1,19 @@
-  ,ad8888ba,    88        88  88  888888888888             db         88888888ba   88888888ba 
- d8"'    `"8b   88        88  88           ,88            d88b        88      "8b  88      "8b
-d8'        `8b  88        88  88         ,88"            d8'`8b       88      ,8P  88      ,8P
-88          88  88        88  88       ,88"             d8'  `8b      88aaaaaa8P'  88aaaaaa8P'
-88          88  88        88  88     ,88"              d8YaaaaY8b     88""""""'    88""""""'  
-Y8,    "88,,8P  88        88  88   ,88"               d8""""""""8b    88           88         
- Y8a.    Y88P   Y8a.    .a8P  88  88"                d8'        `8b   88           88         
-  `"Y8888Y"Y8a   `"Y8888Y"'   88  888888888888      d8'          `8b  88           88         
+QUIZ APP    
 
 
-
-
-  ___       _                 _            _   _            
- |_ _|_ __ | |_ _ __ ___   __| |_   _  ___| |_(_) ___  _ __  
-  | || '_ \| __| '__/ _ \ / _` | | | |/ __| __| |/ _ \| '_ \ 
-  | || | | | |_| | | (_) | (_| | |_| | (__| |_| | (_) | | | |
- |___|_| |_|\__|_|  \___/ \__,_|\__,_|\___|\__|_|\___/|_| |_|                                
+INTRODUCTION - THE PROJECT AIM                                    
 
 The project aim is create our first webside where user can test his knowledge with many different quizzes or create his own quiz. 
 User can also add comments and scores under each quiz.
 
-  _____         _                 _             _           
- |_   _|__  ___| |__  _ __   ___ | | ___   __ _(_) ___  ___ 
-   | |/ _ \/ __| '_ \| '_ \ / _ \| |/ _ \ / _` | |/ _ \/ __|
-   | |  __/ (__| | | | | | | (_) | | (_) | (_| | |  __/\__ \
-   |_|\___|\___|_| |_|_| |_|\___/|_|\___/ \__, |_|\___||___/
-                                          |___/             
+
+TECHNOLOGIES
+
 Django, Postgresql
 
 
-
-  _                           _     
- | |    __ _ _   _ _ __   ___| |__  
- | |   / _` | | | | '_ \ / __| '_ \ 
- | |__| (_| | |_| | | | | (__| | | |
- |_____\__,_|\__,_|_| |_|\___|_| |_|
+LAUNCH
                                     
-
 - First you need Git, Python (>= 3.6) with Virtualenv and Pip installed. 
 If you are under Linux/Mac this should be a no-brainer, if you use Windows and you don't have a Git, Python, Virtualenv and Pip workflow yet, please read this tutorial
 http://timmyreilly.azurewebsites.net/python-pip-virtualenv-installation-on-windows/
@@ -82,13 +60,8 @@ python manage.py runserver
 The project will be available at 127.0.0.1:8000.
 
 
+SCOPE OF FUNCIONALITIES
 
-  ____                                __    __                  _   _                   _ _ _   _           
- / ___|  ___ ___  _ __   ___    ___  / _|  / _|_   _ _ __   ___| |_(_) ___  _ __   __ _| (_) |_(_) ___  ___ 
- \___ \ / __/ _ \| '_ \ / _ \  / _ \| |_  | |_| | | | '_ \ / __| __| |/ _ \| '_ \ / _` | | | __| |/ _ \/ __|
-  ___) | (_| (_) | |_) |  __/ | (_) |  _| |  _| |_| | | | | (__| |_| | (_) | | | | (_| | | | |_| |  __/\__ \
- |____/ \___\___/| .__/ \___|  \___/|_|   |_|  \__,_|_| |_|\___|\__|_|\___/|_| |_|\__,_|_|_|\__|_|\___||___/
-                 |_|                                                                                        
 - Creating new user
 - Adding a new quiz
 - Comment existed quizzes
@@ -96,13 +69,8 @@ The project will be available at 127.0.0.1:8000.
 - Sorting quizzes (genre, popularity, recently added)
 
 
-   ___  _   _                 _        __                            _   _             
-  / _ \| |_| |__   ___ _ __  (_)_ __  / _| ___  _ __ _ __ ___   __ _| |_(_) ___  _ __  
- | | | | __| '_ \ / _ \ '__| | | '_ \| |_ / _ \| '__| '_ ` _ \ / _` | __| |/ _ \| '_ \ 
- | |_| | |_| | | |  __/ |    | | | | |  _| (_) | |  | | | | | | (_| | |_| | (_) | | | |
-  \___/ \__|_| |_|\___|_|    |_|_| |_|_|  \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|
-                                                                                       
-
+OTHER INFORMATION
+                                                                                  
 A Complete Beginner's Guide to Django
 https://simpleisbetterthancomplex.com/series/beginners-guide/1.11/
 
