@@ -9,6 +9,13 @@ class Quiz(models.Model):
     rate = models.FloatField(max_length=5, default=0)
     date_created = models.DateTimeField(auto_now_add=True)
 
-    def __repr__(self):
+    class Meta:
+        verbose_name_plural = "Quizzes"
+
+    def __str__(self):
         return self.name
+
+
+
+
 
