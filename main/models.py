@@ -8,6 +8,7 @@ class Category(models.Model):
 
 class Quiz(models.Model):
     name = models.CharField(max_length=50)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.CharField(max_length=300)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     rate = models.FloatField(max_length=5, default=0)
