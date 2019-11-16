@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'users',
     'bootstrap4',
     'main',
-    'quiz',
     'crispy_forms',
 ]
 
