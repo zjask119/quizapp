@@ -36,7 +36,9 @@ li a:hover {
  }
 
  .panel-default {
-  margin-left: 100px;
+  margin-left: 50px;
+  width: 500px;
+  background-color: LightSteelBlue;
  }
 
 </style>
@@ -44,10 +46,11 @@ li a:hover {
 <body>
 
 <ul>
-  <li style="text indent: 90px"><b><a href="http://127.0.0.1:8000/main/">&nbsp;&nbsp;QUIZ App</a></b></li>
+  <li style="text indent: 50px"><b><a href="/">&nbsp;&nbsp;QUIZ App</a></b></li>
   <li><a href="#about">About</a></li>
   <li><a href="#contact">Contact</a></li>
-  <li style="float: right"><a href="http://127.0.0.1:8000/login/">Login</a></li>
+  <li style="float: right"><a href="/register">Register</a></li>
+  <li style="float: right"><a href="/login">Login</a></li>
 </ul>
 
 {% load bootstrap4 %}
@@ -57,16 +60,17 @@ li a:hover {
 <div class="Wrapper">
     {% block content %}{% endblock %}
 </div>
-<div class="Wrapper">
-    <div class="panel-default">
-              {% for quiz in quizs %}
+
+
+    {% for quiz in quizs %}
+        <div class="panel-default">
               <h4>{{ quiz.name|title }}</h4><br>
               <li>{{ quiz.description }}</li><br>
               <li>{{ quiz.author }}</li><br><br><br>
-              {% endfor %}
+        </div><br>
+    {% endfor %}
 
-    </div>
-</div>
+
 </body>
 
 </html>
