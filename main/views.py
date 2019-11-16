@@ -12,4 +12,11 @@ def quiz_list_view(request):
 def main_view(request):
     return render(request, "list.html", {})
 
-# Create your views here.
+
+def view_about(request):
+    return render(request, "main/about.html", {'title': 'About'})
+
+
+def view_contact(request):
+    return render(request, "main/contact.html", {'title': 'Contact'})
+
