@@ -35,6 +35,7 @@ urlpatterns = [
     path('', quiz_list_view),
     path('about/', view_about, name='about'),
     path('contact/', view_contact, name='contact'),
+]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
