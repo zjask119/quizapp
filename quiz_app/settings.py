@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^88@!y&r=*#56wsc)9bu($cvz4f5cqt%90r!!=-zt&2b2)e3a!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -58,8 +58,8 @@ ROOT_URLCONF = 'quiz_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        # 'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'quizapp/main/templates/404.html')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
