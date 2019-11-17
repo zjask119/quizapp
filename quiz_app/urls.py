@@ -17,9 +17,13 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from users import views as user_views
+from main.views import main_view, quiz_list_view, view_about, view_contact
+from django.conf import settings
+from django.conf.urls.static import static
 from django.conf.urls import handler404
 import django.views.defaults
 from django.http import Http404
+
 
 from main.views import main_view, quiz_list_view, view_about, view_contact
 
@@ -31,6 +35,6 @@ urlpatterns = [
     path('', quiz_list_view),
     path('about/', view_about, name='about'),
     path('contact/', view_contact, name='contact'),
-]
 
-
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

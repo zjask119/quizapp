@@ -122,7 +122,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+NEW_BASE_DIR = os.path.join(
+   os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'quizapp/'
+)
+
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(NEW_BASE_DIR, '/static/')
+
+MEDIA_URL = '/'
+MEDIA_ROOT = os.path.join(NEW_BASE_DIR, '/media/')
+
+# STATICFILES_DIR =
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
