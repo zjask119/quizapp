@@ -10,11 +10,7 @@ from django.http import Http404
 
 def quiz_list_view(request):
     quizs_query = Quiz.objects.all()
-    return render(request, "list.html", {"quizs": quizs_query})
-
-
-def main_view(request):
-    return render(request, "list.html", {})
+    return render(request, "main/list.html", {"quizs": quizs_query})
 
 
 def view_about(request):

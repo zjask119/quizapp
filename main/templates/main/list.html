@@ -1,0 +1,11 @@
+{% extends "main/index.html" %}
+{% block content %}
+  {% for quiz in quizs %}
+  <a href="/quiz" join quiz.pk>
+  <div class="panel-default">
+      <h4>{{ quiz.name|title }}</h4><br>
+      <h6>{{ quiz.description }}</h6><br>
+      <h6>{{ quiz.author }}</h6><br><br><br>
+  </div><br></a>
+  {% endfor %}
+{% endblock content %}
