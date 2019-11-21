@@ -3,9 +3,11 @@
   {% for quiz in quizs %}
   <a href="/quiz" join quiz.pk>
   <div class="panel-default">
-      <h4>{{ quiz.name|title }}</h4><br>
-      <h6>{{ quiz.description }}</h6><br>
-      <h6>{{ quiz.author }}</h6><br><br><br>
+      <div class="text"><br>
+        <h4>{{ quiz.name|title }}</h4><br>
+        <h6>{{ quiz.description }}</h6><br>
+        <h6 align="right">{{ quiz.author }}</h6><br><br><br>
+      </div>
   </div><br></a>
   {% endfor %}
 {% endblock content %}
