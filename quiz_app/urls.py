@@ -20,7 +20,7 @@ from users import views as user_views
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
-from main.views import quiz_list_view, view_about, view_contact
+from main.views import quiz_list_view, view_about, view_contact, quiz_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -41,6 +41,7 @@ urlpatterns = [
          name='password_reset_complete'),
     url(r'profile/(?P<username>[a-zA-Z0-9]+)$', user_views.get_user_profile),
     path('', quiz_list_view),
+    path('<int:quiz_pk>/', quiz_detail, name='quiz_detail'),
     path('about/', view_about, name='about'),
     path('contact/', view_contact, name='contact'),
 ]
