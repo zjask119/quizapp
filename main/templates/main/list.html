@@ -3,7 +3,7 @@
     <div class="flex-container">
         <div class="quiz">
             {% for quiz in quizs %}
-            <a href="/quiz" join quiz.pk>
+            <a href="{{quiz.pk}}" join quiz.pk>
             <div class="quiz-default">
                 <div class="text"><br>
                     <h4><b>{{ quiz.name|title }}</b></h4><br>
