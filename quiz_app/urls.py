@@ -43,7 +43,7 @@ urlpatterns = [
     path('profile/', user_views.get_user_profile),
     path('', category_view, ),
     path('', quiz_list_view),
-    path('<int:quiz_id>/', quiz_detail, name='quiz_detail'),
+    path('<int:quiz_pk>/', quiz_detail, name='quiz_detail'),
     path('about/', view_about, name='about'),
     path('contact/', view_contact, name='contact'),
 ]
