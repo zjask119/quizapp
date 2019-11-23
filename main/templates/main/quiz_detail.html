@@ -8,7 +8,8 @@
         <h4>{{ quiz.description }}</h4>
         <h5>{{ quiz.author }}</h5>
     </div>
-    <form method="POST">
+    <form method="POST" action="{% url 'quiz_check' %}">
+         {% csrf_token %}
         <!-- przeglądamy listę pytań -->
         {% for question in quiz_data %}
           <p>
@@ -19,8 +20,8 @@
             {% for answer in question.answers %}
               <label>
                 <!-- odpowiedzi wyświetlamy jako pole typu radio -->
-                <input type="radio" value="{{ answer }}">
-                {{ answer }}
+                <input type="radio" name="value-{{ question.id }}" value="{{ answer.id }}">
+                {{ answer.text }}
               </label>
               <br>
             {% endfor %}
