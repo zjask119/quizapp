@@ -1,4 +1,3 @@
-
 {% extends "main/index.html" %}
 
 {% block content %}
@@ -22,6 +21,7 @@
                 <!-- odpowiedzi wyświetlamy jako pole typu radio -->
                 <input type="radio" name="value-{{ question.id }}" value="{{ answer.id }}">
                 {{ answer.text }}
+
               </label>
               <br>
             {% endfor %}
