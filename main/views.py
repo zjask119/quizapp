@@ -9,7 +9,7 @@ def quiz_list_view(request):
 
 def quiz_detail(request, quiz_pk):
     try:
-        quiz = Quiz.object.get(pk=quiz_pk)
+        quiz = Quiz.objects.get(pk=quiz_pk)
     except Quiz.DoesNotExist:
         raise Http404("Quiz does not exist!")
 
