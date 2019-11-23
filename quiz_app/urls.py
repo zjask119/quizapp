@@ -20,8 +20,7 @@ from users import views as user_views
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
-from main.views import quiz_list_view, view_about, view_contact, category_view, quiz_detail, quiz_check
-
+from main.views import quiz_list_view, view_about, view_contact, category_view, quiz_detail, quiz_check, quiz_create
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -47,6 +46,7 @@ urlpatterns = [
     path('about/', view_about, name='about'),
     path('contact/', view_contact, name='contact'),
     path('quiz_check/', quiz_check, name='quiz_check'),
+    path('quiz_create/', quiz_create, name='quiz_create'),
 ]
 
 if settings.DEBUG:
