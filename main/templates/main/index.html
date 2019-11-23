@@ -12,7 +12,7 @@
           }
           li {
             float: left;
-            color: DarkBlue;
+            color: MidnightBlue;
           }
           li a {
             display: block;
@@ -27,20 +27,33 @@
           .Wrapper {
             margin-top: 80px;
           }
-           .panel-default {
-            margin-left: 50px;
-            width: 55%;
+           .quiz-default {
+            margin-left: 7%;
             height: 200px;
             background-color: LightSteelBlue;
             border: 2px solid SteelBlue;
             border-radius: 20px;
           }
            .text {
-           color: DarkBlue;
+           color: MidnightBlue;
            margin-left: 30px;
            margin-right:30px;
           }
-
+          .category {
+          float: right;
+          width: 35%;
+          }
+          .category-default {
+          border: 2px solid SteelBlue;
+          border-radius: 10px;
+          margin-right: 10%;
+          height: 40px;
+          color: MidnightBlue;
+          }
+          .quiz {
+          width: 55%;
+          float: left;
+          }
       </style>
   </head>
   <body>
@@ -50,7 +63,7 @@
           <li><a href="/contact">Contact</a></li>
           {% if user.is_authenticated %}
           <li style="float: right"><a href="/logout">Logout</a></li>
-          <li style="float: right"><a href="/profile/{{ user.username }}">{{ user.username }}</a></li>
+          <li style="float: right"><a href="/profile/">{{ user.username }}</a></li>
           {% else %}
           <li style="float: right"><a href="/register">Register</a></li>
           <li style="float: right"><a href="/login">Login</a></li>

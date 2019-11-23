@@ -20,7 +20,7 @@ from users import views as user_views
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
-from main.views import quiz_list_view, view_about, view_contact
+from main.views import quiz_list_view, view_about, view_contact, category_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,7 +39,8 @@ urlpatterns = [
     path('password-reset-complete/',
          auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'),
          name='password_reset_complete'),
-    url(r'profile/(?P<username>[a-zA-Z0-9]+)$', user_views.get_user_profile),
+    path('profile/', user_views.get_user_profile),
+    path('', category_view, ),
     path('', quiz_list_view),
     path('about/', view_about, name='about'),
     path('contact/', view_contact, name='contact'),

@@ -18,6 +18,6 @@ def register(request):
     return render(request, 'users/register.html', {'form': form})
 
 
-def get_user_profile(request, username):
-    user = User.objects.get(username=username)
+def get_user_profile(request):
+    user = request.user
     return render(request, 'users/profile.html', {"user": user})
