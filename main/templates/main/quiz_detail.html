@@ -18,7 +18,7 @@
             {% for answer in question.answers %}
               <label>
                 <!-- odpowiedzi wyświetlamy jako pole typu radio -->
-                <input type="radio" value="{{ answer }}">
+                <input type="radio" name="{{ question }}" value="{{ answer }}">
                 {{ answer }}
               </label>
               <br>
