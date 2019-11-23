@@ -1,10 +1,11 @@
-
 {% extends "main/index.html" %}
 
 {% block content %}
-    <center>
-        <div class="introduction">
-             <h2>Your score: {{score}}</h2>
-        </div>
-    </center>
+<center>
+    <div class="introduction">
+        <h2>Your score: {{score}}</h2>
+        <h2>Max score: {{max_score}}</h2>
+        <h1><b>Result: {{result}} %</b></h1>
+    </div>
+</center>
 {% endblock %}
