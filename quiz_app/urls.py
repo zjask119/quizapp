@@ -39,7 +39,7 @@ urlpatterns = [
     path('password-reset-complete/',
          auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'),
          name='password_reset_complete'),
-    url(r'profile/(?P<username>[a-zA-Z0-9]+)$', user_views.get_user_profile),
+    path('profile/', user_views.get_user_profile),
     path('', quiz_list_view),
     path('about/', view_about, name='about'),
     path('contact/', view_contact, name='contact'),
