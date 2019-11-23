@@ -16,7 +16,8 @@ def quiz_detail(request, quiz_pk):
     quiz_data = []
     for question in quiz.question.all():
         quiz_data.append({'questions': question.question_text, 'id': question.pk,
-                          'answers': [{'id': answer.pk, 'text': answer.answer_text} for answer in question.answer.all()]})
+                          'answers': [{'id': answer.pk, 'text': answer.answer_text} for answer in
+                                      question.answer.all()]})
 
     context = {"quiz_data": quiz_data, "quiz": quiz}
     return render(request, "main/quiz_detail.html", context)
@@ -26,7 +27,7 @@ def quiz_check(request):
     score = 0
 
     answers = [
-        value[0]
+        value
         for key, value in request.POST.items()
         if key.startswith('value-')
     ]
