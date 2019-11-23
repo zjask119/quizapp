@@ -25,6 +25,7 @@ def quiz_detail(request, quiz_pk):
 
 def quiz_check(request):
     score = 0
+    max_score = 0
 
     answers = [
         value
@@ -34,10 +35,15 @@ def quiz_check(request):
 
     for answer in answers:
         ans = Answer.objects.get(pk=answer)
+        max_score += 1
         if ans.is_correct:
             score += 1
 
-    return render(request, "main/score.html", {'score': score})
+    result = float(score/max_score) * 100
+
+    context = {'score': score, 'max_score': max_score, 'result': result}
+
+    return render(request, "main/score.html", context )
 
 
 def view_about(request):
