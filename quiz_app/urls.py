@@ -20,7 +20,8 @@ from users import views as user_views
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
-from main.views import quiz_list_view, view_about, view_contact, category_view
+from main.views import quiz_list_view, view_about, view_contact, category_view, quiz_detail
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,6 +43,7 @@ urlpatterns = [
     path('profile/', user_views.get_user_profile),
     path('', category_view, ),
     path('', quiz_list_view),
+    path('<int:quiz_id>/', quiz_detail, name='quiz_detail'),
     path('about/', view_about, name='about'),
     path('contact/', view_contact, name='contact'),
 ]
