@@ -13,13 +13,12 @@ def quiz_detail(request, quiz_pk):
     except Quiz.DoesNotExist:
         raise Http404("Quiz does not exist!")
 
-    questions = Question.objects.filter(quiz=quiz)
-    answers = Answer.objects.filter(question__quiz=quiz)
+    quiz_data = []
+    for question in Quiz.question.all():
+        quiz_data.append({'questions': question.question_text,
+                          'answers': [answer.answer_text for answer in question.answer.all()]})
 
-    context = {"quiz": quiz,
-               "questions": questions,
-               "answers": answers
-               }
+    context = {"quiz_data": quiz_data}
     return render(request, "main/quiz_detail.html", context)
 
 
