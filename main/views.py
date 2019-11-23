@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from main.models import Quiz, Category, Question, Answer
+from main.models import Quiz, Category, Answer
 from django.http import Http404
+from django.core.paginator import Paginator, EmptyPage
 
 
 def quiz_list_view(request):
@@ -55,6 +56,16 @@ def view_contact(request):
 
 
 def category_view(request):
+    quiz_page = request.GET.get('page_quiz', 1)
+    category_page = request.GET.get('page_category', 1)
     quizs_query = Quiz.objects.all()
+    paginator = Paginator(quizs_query, 3)
     categorys_query = Category.objects.all()
-    return render(request, "main/list.html", {"categorys": categorys_query, "quizs": quizs_query})
+    paginator2 = Paginator(categorys_query, 5)
+    try:
+        quizs = paginator.page(quiz_page)
+        categorys = paginator2.page(category_page)
+    except EmptyPage:
+        quizs = paginator.page(paginator.num_pages)
+        categorys = paginator2.page(paginator2.num_pages)
+    return render(request, "main/list.html", {"categorys": categorys, "quizs": quizs})

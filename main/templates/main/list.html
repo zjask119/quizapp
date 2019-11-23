@@ -12,6 +12,15 @@
                 </div>
             </div><br></a>
             {% endfor %}
+            <div class="quiz_button">
+                {% if quizs.has_next %}
+                    <a href="?page_quiz={{ quizs.next_page_number }}">quiz next</a><br>
+                    <a href="?page_quiz={{ quizs.paginator.num_pages }}">quiz last</a>
+                {% endif %}
+                {% if quizs.has_previous %}
+                    <a href="?page_quiz={{ quizs.previous_page_number }}">quiz previous</a>
+                {% endif %}
+            </div>
         </div>
         <div class="category">
             {% for category in categorys %}
@@ -19,6 +28,16 @@
                 <h4><b><center>{{ category.name }}</center></b></h4><br>
             </div><br>
             {% endfor %}
+            <div class="category_button">
+                {% if categorys.has_next %}
+                    <a href="?page_category={{ categorys.next_page_number }}">category next</a><br>
+                    <a href="?page_category={{ categorys.paginator2.num_pages }}">category last</a>
+                {% endif %}
+                {% if categorys.has_previous %}
+                    <a href="?page_category={{ categorys.previous_page_number }}">category previous</a>
+                {% endif %}
+            </div>
         </div>
     </div>
+</div>
 {% endblock %}
