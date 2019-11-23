@@ -1,0 +1,32 @@
+
+{% extends "main/index.html" %}
+
+{% block content %}
+<!-- formularz z quizem -->
+    <center><div class="introduction">
+        <h2>{{ quiz.name|title }}</h2>
+        <h4>{{ quiz.description }}</h4>
+        <h5>{{ quiz.author }}</h5>
+    </div>
+    <form method="POST">
+        <!-- przeglądamy listę pytań -->
+        {% for question in quiz_data %}
+          <p>
+            <!-- wyświetlamy treść pytania -->
+            {{ question.questions }}
+            <br>
+            <!-- przeglądamy odpowiedzi dla danego pytania -->
+            {% for answer in question.answers %}
+              <label>
+                <!-- odpowiedzi wyświetlamy jako pole typu radio -->
+                <input type="radio" value="{{ answer }}">
+                {{ answer }}
+              </label>
+              <br>
+            {% endfor %}
+          </p>
+        {% endfor %}
+        <!-- przycisk wysyłający wypełniony formularz -->
+        <button type="submit">Sprawdź odpowiedzi</button>
+    </form></center>
+{% endblock %}
