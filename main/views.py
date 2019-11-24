@@ -113,7 +113,6 @@ def category_view(request):
     quizs_query = Quiz.objects.all()
     paginator = Paginator(quizs_query, 3)
     categorys_query = Category.objects.all()
-    paginator2 = Paginator(categorys_query, 5)
     try:
         quizs = paginator.page(quiz_page)
     except EmptyPage:
