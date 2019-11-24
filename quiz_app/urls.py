@@ -20,7 +20,14 @@ from users import views as user_views
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
-from main.views import quiz_list_view, view_about, view_contact, category_view, quiz_detail, quiz_check, quiz_create
+from main.views import \
+    view_about, \
+    view_contact, \
+    category_view, \
+    quiz_detail, \
+    quiz_check, \
+    quiz_create, \
+    question_create, answer_create
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,13 +47,15 @@ urlpatterns = [
          auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'),
          name='password_reset_complete'),
     path('profile/', user_views.get_user_profile),
-    path('', category_view, ),
-    path('', quiz_list_view),
+    path('', category_view, name='home'),
     path('<int:quiz_pk>/', quiz_detail, name='quiz_detail'),
     path('about/', view_about, name='about'),
     path('contact/', view_contact, name='contact'),
     path('quiz_check/', quiz_check, name='quiz_check'),
     path('quiz_create/', quiz_create, name='quiz_create'),
+    path('quiz_create/question_create/<int:quiz_id>/', question_create, name='question_create'),
+    path('quiz_create/question_create/<int:quiz_id>/answer_create/<int:question_id>/',
+         answer_create, name='answer_create'),
 ]
 
 if settings.DEBUG:

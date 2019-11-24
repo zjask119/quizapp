@@ -1,0 +1,28 @@
+{% extends "main/index.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ name }}</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Add</button>
+
+
+        </div>
+    </form>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% if name == 'Add answer' %}
+
+        <input class="btn btn-outline-info" type="submit" name="new_question" value='Add new question'>
+        <input class="btn btn-outline-info" type="submit" name="exit" value="Exit">
+
+        {% endif %}
+    </form>
+</div>
+
+{% endblock content %}html>

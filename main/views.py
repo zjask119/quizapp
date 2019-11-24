@@ -1,10 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.shortcuts import render, redirect
-from main.models import Quiz, Category, Answer
+from django.shortcuts import render, redirect, get_object_or_404
+from main.models import Quiz, Category, Answer, Question
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage
-from .forms import QuizForm
+from .forms import QuizForm, QuestionForm, AnswerForm
 
 
 def view_about(request):
@@ -13,32 +13,6 @@ def view_about(request):
 
 def view_contact(request):
     return render(request, "main/contact.html", {'title': 'Contact'})
-
-
-def category_view(request):
-    quiz_page = request.GET.get('page_quiz', 1)
-    category_page = request.GET.get('page_category', 1)
-    quizs_query = Quiz.objects.all()
-    paginator = Paginator(quizs_query, 3)
-    categorys_query = Category.objects.all()
-    paginator2 = Paginator(categorys_query, 5)
-    try:
-        quizs = paginator.page(quiz_page)
-        categorys = paginator2.page(category_page)
-    except EmptyPage:
-        quizs = paginator.page(paginator.num_pages)
-        categorys = paginator2.page(paginator2.num_pages)
-    return render(request, "main/list.html", {"categorys": categorys, "quizs": quizs})
-
-
-def category_view(request):
-    quizs_query = Quiz.objects.all()
-    categorys_query = Category.objects.all()
-    return render(request, "main/list.html", {"categorys": categorys_query, "quizs": quizs_query})
-
-
-def quiz_list_view(request):
-    return render(request, "main/list.html", {})
 
 
 def quiz_detail(request, quiz_pk):
@@ -86,12 +60,52 @@ def quiz_create(request):
             form.instance.author = request.user
             form.save()
             messages.success(request, f'Quiz has been added!')
-            return redirect('/')
+            return redirect(f'question_create/{form.instance.id}/')
+        else:
+            raise Http404("Quiz does not exist!")
     else:
         form = QuizForm()
-    return render(request, 'main/quiz_form.html', {'form': form})
+        return render(request, 'main/quiz_form.html', {'form': form})
 
 
+@login_required
+def question_create(request, quiz_id):
+    quiz = get_object_or_404(Quiz, pk=quiz_id)
+    if request.method == 'POST':
+        form = QuestionForm(request.POST)
+        if form.is_valid():
+            form.instance.quiz = quiz
+            form.save()
+            messages.success(request, f'Question has been added. Now add answers!')
+            return redirect('answer_create', quiz_id=quiz_id, question_id=form.instance.id)
+        else:
+            raise Http404("Question does not exist!")
+    else:
+        form = QuestionForm()
+        return render(request, 'main/question_form.html', {'form': form, 'name': 'Add question'})
+
+
+@login_required
+def answer_create(request, quiz_id, question_id):
+    question = Question.objects.get(pk=question_id)
+
+    if request.method == 'POST':
+        data = request.POST
+        if data.get('new_question'):
+            return redirect('question_create', quiz_id=quiz_id)
+        if data.get('exit'):
+            return redirect('home')
+        form = AnswerForm(request.POST)
+        if form.is_valid():
+            form.instance.question = question
+            form.save()
+            messages.success(request, f'Answer has been added')
+            return redirect('answer_create', quiz_id=quiz_id, question_id=question_id)
+        else:
+            raise Http404("Question does not exist!")
+    else:
+        form = AnswerForm()
+        return render(request, 'main/question_form.html', {'form': form, 'name': 'Add answer'})
 
 
 def category_view(request):
