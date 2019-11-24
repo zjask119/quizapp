@@ -2,23 +2,41 @@
 
 {% load crispy_forms_tags %}
 {% block content %}
-    <center><div class="content-section">
+    <center>
+        <div class="content-section">
       <div class="media">
         <div class="media-body">
           <h2 class="account-heading">{{ user.username }}</h2>
                 <img src="{{ user.profile.image.url }}" width = "250" height = "250"  /><br>
+
         </div>
+
       </div>
       <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <fieldset class="form-group">
               <legend class="border-bottom mb-4">Profile Info</legend>
-              {{ u_form|crispy }}
-              {{ p_form|crispy }}
+              <p class="text-secondary">Joined: {{ user.date_joined }}</p>
+              <p class="text-secondary">Email: {{ user.email }}</p>
+              <p class="text-secondary">Active: {{ user.is_active }}</p>
           </fieldset>
-          <div class="form-group">
-              <button onclick="location.href='/password-reset'" type="button">Settings</button>
-          </div>
+
       </form>
-    </div></center>
+          <legend class="border-bottom mb-4">Added quizzes:</legend>
+
+        {% for quiz in quizes %}
+            <a href="/{{quiz.pk}}" join quiz.pk>
+                <div class="flex-container">
+                    <div class="text"><br>
+                        <h4><b><center>{{ quiz.name|title }}</center></b></h4><br>
+                        <h6>{{ quiz.description }}</h6><br>
+                    </div>
+                </div><br>
+            </a>
+            {% endfor %}
+        <div class="form-group">
+              <button onclick="location.href='/password-reset'" type="button">Settings</button>
+        </div>
+    </center>
+    </div>
 {% endblock content %}

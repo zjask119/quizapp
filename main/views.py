@@ -15,28 +15,6 @@ def view_contact(request):
     return render(request, "main/contact.html", {'title': 'Contact'})
 
 
-def category_view(request):
-    quiz_page = request.GET.get('page_quiz', 1)
-    category_page = request.GET.get('page_category', 1)
-    quizs_query = Quiz.objects.all()
-    paginator = Paginator(quizs_query, 3)
-    categorys_query = Category.objects.all()
-    paginator2 = Paginator(categorys_query, 5)
-    try:
-        quizs = paginator.page(quiz_page)
-        categorys = paginator2.page(category_page)
-    except EmptyPage:
-        quizs = paginator.page(paginator.num_pages)
-        categorys = paginator2.page(paginator2.num_pages)
-    return render(request, "main/list.html", {"categorys": categorys, "quizs": quizs})
-
-
-def category_view(request):
-    quizs_query = Quiz.objects.all()
-    categorys_query = Category.objects.all()
-    return render(request, "main/list.html", {"categorys": categorys_query, "quizs": quizs_query})
-
-
 def quiz_list_view(request):
     return render(request, "main/list.html", {})
 
@@ -92,14 +70,11 @@ def quiz_create(request):
     return render(request, 'main/quiz_form.html', {'form': form})
 
 
-
-
 def category_view(request):
     quiz_page = request.GET.get('page_quiz', 1)
     quizs_query = Quiz.objects.all()
     paginator = Paginator(quizs_query, 3)
     categorys_query = Category.objects.all()
-    paginator2 = Paginator(categorys_query, 5)
     try:
         quizs = paginator.page(quiz_page)
     except EmptyPage:
