@@ -15,10 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from django.urls import path, include
+from django.urls import path
 from users import views as user_views
 from django.conf import settings
-from django.conf.urls import url
 from django.conf.urls.static import static
 from main.views import \
     view_about, \
@@ -27,7 +26,7 @@ from main.views import \
     quiz_detail, \
     quiz_check, \
     quiz_create, \
-    question_create, answer_create
+    question_create, answer_create, view_by_category
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -51,6 +50,7 @@ urlpatterns = [
     path('<int:quiz_pk>/', quiz_detail, name='quiz_detail'),
     path('about/', view_about, name='about'),
     path('contact/', view_contact, name='contact'),
+    path('category/', view_by_category),
     path('quiz_check/', quiz_check, name='quiz_check'),
     path('quiz_create/', quiz_create, name='quiz_create'),
     path('quiz_create/question_create/<int:quiz_id>/', question_create, name='question_create'),

@@ -119,3 +119,11 @@ def category_view(request):
     except EmptyPage:
         quizs = paginator.page(paginator.num_pages)
     return render(request, "main/list.html", {"categorys": categorys_query, "quizs": quizs})
+
+
+def view_by_category(request):
+    quizes = Quiz.objects.all()
+    category = request.GET.get('filter')
+    if category:
+        quizes = Quiz.objects.filter(category__pk=category)
+    return render(request, 'main/category_list.html', {'quizes': quizes})
