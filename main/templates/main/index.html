@@ -82,6 +82,14 @@
           width: 50px;
           height: 30px;
           }
+          .flex-container {
+          align-content: space-between;
+          background-color: LightSteelBlue;
+          width: 35%;
+          border: 2px solid SteelBlue;
+          border-radius: 5px;
+
+          }
       </style>
   </head>
   <body>
@@ -108,8 +116,8 @@
                     </div>
                 {% endfor %}
             {% endif %}
-          {% block content %}{% endblock %}
           </div>
+          {% block content %}{% endblock %}
       </div>
   </body>
 </html>
