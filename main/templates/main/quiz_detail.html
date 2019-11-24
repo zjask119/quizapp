@@ -19,7 +19,7 @@
             {% for answer in question.answers %}
               <label>
                 <!-- odpowiedzi wyświetlamy jako pole typu radio -->
-                <input type="radio" name="value-{{ question.id }}" value="{{ answer.id }}">
+                <input type="radio" name="value-{{ question.id }}" value="{{ answer.id }}" required>
                 {{ answer.text }}
 
               </label>

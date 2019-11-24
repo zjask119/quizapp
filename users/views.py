@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .forms import UserRegisterForm
-from users.models import Profile
+from users.models import Quiz
 
 
 def register(request):
@@ -20,4 +20,5 @@ def register(request):
 
 def get_user_profile(request):
     user = request.user
-    return render(request, 'users/profile.html', {"user": user})
+    quizes = Quiz.objects.filter(author=user)
+    return render(request, 'users/profile.html', {"user": user, 'quizes': quizes})
