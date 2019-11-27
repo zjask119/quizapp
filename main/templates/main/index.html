@@ -1,8 +1,8 @@
 {% load bootstrap4 %}
 {% bootstrap_css %}
 <html>
-  <head>
-      <style>
+<head>
+    <style>
           ul {
             list-style-type: none;
             margin: 0;
@@ -93,34 +93,35 @@
           margin-left: 20%;
           margin-right: 20%;
           }
-      </style>
-  </head>
-  <body>
-      <ul>
-          <li style="text indent: 50px"><b><a href="/">&nbsp;&nbsp;QUIZ App</a></b></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-          {% if user.is_authenticated %}
-          <li style="float: right"><a href="/logout">Logout</a></li>
-          <li style="float: right"><a href="/profile/">{{ user.username }}</a></li>
-          <li style="float: right"><a href="/quiz_create">Add Quiz</a></li>
 
-          {% else %}
-          <li style="float: right"><a href="/register">Register</a></li>
-          <li style="float: right"><a href="/login">Login</a></li>
-          {% endif %}
-      </ul>
-      <div class="Wrapper">
-          <div class="col-md-8">
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-          </div>
-          {% block content %}{% endblock %}
-      </div>
-  </body>
+    </style>
+</head>
+<body>
+<ul>
+    <li style="text indent: 50px"><b><a href="/">&nbsp;&nbsp;QUIZ App</a></b></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+    {% if user.is_authenticated %}
+    <li style="float: right"><a href="/logout">Logout</a></li>
+    <li style="float: right"><a href="/profile/">{{ user.username }}</a></li>
+    <li style="float: right"><a href="/quiz_create">Add Quiz</a></li>
+
+    {% else %}
+    <li style="float: right"><a href="/register">Register</a></li>
+    <li style="float: right"><a href="/login">Login</a></li>
+    {% endif %}
+</ul>
+<div class="Wrapper">
+    <div class="col-md-8">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    {% block content %}{% endblock %}
+</div>
+</body>
 </html>

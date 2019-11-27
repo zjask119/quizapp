@@ -18,8 +18,8 @@
         {% csrf_token %}
         {% if name == 'Add answer' %}
 
-        <input class="btn btn-outline-info" type="submit" name="new_question" value='Add new question'>
-        <input class="btn btn-outline-info" type="submit" name="exit" value="Exit">
+        <input class="btn btn-outline-info" name="new_question" type="submit" value='Add new question'>
+        <input class="btn btn-outline-info" name="exit" type="submit" value="Exit">
 
         {% endif %}
     </form>

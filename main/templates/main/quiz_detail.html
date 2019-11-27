@@ -2,32 +2,34 @@
 
 {% block content %}
 <!-- formularz z quizem -->
-    <center><div class="introduction">
+<center>
+    <div class="introduction">
         <h2>{{ quiz.name|title }}</h2>
         <h4>{{ quiz.description }}</h4>
         <h5>{{ quiz.author }}</h5>
     </div>
-    <form method="POST" action="{% url 'quiz_check' %}">
-         {% csrf_token %}
+    <form action="{% url 'quiz_check' %}" method="POST">
+        {% csrf_token %}
         <!-- przeglądamy listę pytań -->
         {% for question in quiz_data %}
-          <p>
+        <p>
             <!-- wyświetlamy treść pytania -->
             {{ question.questions }}
             <br>
             <!-- przeglądamy odpowiedzi dla danego pytania -->
             {% for answer in question.answers %}
-              <label>
+            <label>
                 <!-- odpowiedzi wyświetlamy jako pole typu radio -->
-                <input type="radio" name="value-{{ question.id }}" value="{{ answer.id }}" required>
+                <input name="value-{{ question.id }}" required type="radio" value="{{ answer.id }}">
                 {{ answer.text }}
 
-              </label>
-              <br>
+            </label>
+            <br>
             {% endfor %}
-          </p>
+        </p>
         {% endfor %}
         <!-- przycisk wysyłający wypełniony formularz -->
         <button type="submit">Check your answers!</button>
-    </form></center>
+    </form>
+</center>
 {% endblock %}

@@ -1,43 +1,54 @@
 {% extends "main/index.html" %}
 {% block content %}
-    <div class="flex-container">
-        <div class="quiz">
-            {% for quiz in quizs %}
-            <a href="{{quiz.pk}}" join quiz.pk>
+<div class="flex-container">
+    <div class="quiz">
+        {% for quiz in quizs %}
+        <a href="{{quiz.pk}}" join quiz.pk>
             <div class="quiz-default">
                 <div class="text"><br>
                     <h4><b>{{ quiz.name|title }}</b></h4><br>
                     <h6>{{ quiz.description }}</h6><br>
                     <h6 align="right">{{ quiz.author }}</h6><br><br><br>
                 </div>
-            </div><br></a>
-            {% endfor %}
-            <div class="quiz_button">
-                {% if quizs.has_previous %}
-                <div class="previous">
-                    <a href="?page_quiz={{ quizs.previous_page_number }}"><center>BACK</center></a>
-                </div>
-                {% endif %}
-
-                {% if quizs.has_next %}
-                <div class="next">
-                    <a href="?page_quiz={{ quizs.next_page_number }}"><center>NEXT</center></a>
-                </div>
-                <div class="last">
-                    <a href="?page_quiz={{ quizs.paginator.num_pages }}"><center>LAST</center></a>
-                </div>
-                {% endif %}
             </div>
-        </div>
-        <div class="category">
-            {% for category in categorys %}
-            <a href="category/?filter={{category.pk}}">
-                <div class="category-default">
-                    <h4><b><center>{{ category.name }}</center></b></h4><br>
-                </div><br>
-            </a>
-            {% endfor %}
+            <br></a>
+        {% endfor %}
+        <div class="quiz_button">
+            {% if quizs.has_previous %}
+            <div class="previous">
+                <a href="?page_quiz={{ quizs.previous_page_number }}">
+                    <center>BACK</center>
+                </a>
+            </div>
+            {% endif %}
+
+            {% if quizs.has_next %}
+            <div class="next">
+                <a href="?page_quiz={{ quizs.next_page_number }}">
+                    <center>NEXT</center>
+                </a>
+            </div>
+            <div class="last">
+                <a href="?page_quiz={{ quizs.paginator.num_pages }}">
+                    <center>LAST</center>
+                </a>
+            </div>
+            {% endif %}
         </div>
     </div>
+    <div class="category">
+        {% for category in categorys %}
+        <a href="category/?filter={{category.pk}}">
+            <div class="category-default">
+                <h4><b>
+                    <center>{{ category.name }}</center>
+                </b></h4>
+                <br>
+            </div>
+            <br>
+        </a>
+        {% endfor %}
+    </div>
+</div>
 </div>
 {% endblock %}
