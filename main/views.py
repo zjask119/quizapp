@@ -122,7 +122,8 @@ def category_view(request):
 
 def view_by_category(request):
     quizes = Quiz.objects.all()
-    category = request.GET.get('filter')
+    category_pk = request.GET.get('filter')
+    category = Category.objects.get(pk=category_pk)
     if category:
-        quizes = Quiz.objects.filter(category__pk=category)
-    return render(request, 'main/category_list.html', {'quizes': quizes})
+        quizes = Quiz.objects.filter(category__pk=category_pk)
+    return render(request, 'main/category_list.html', {'quizes': quizes, 'category': category})

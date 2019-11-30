@@ -3,6 +3,7 @@
 {% block content %}
 <center>
     <div class="introduction">
+        <h3>{{ category.name }}</h3>
         {% for quiz in quizes %}
         <a href="/{{quiz.pk}}" join quiz.pk>
             <div class="user-quizzes">
